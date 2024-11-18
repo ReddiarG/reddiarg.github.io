@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Data Science Journey</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --light-bg: #f7f6f3;
+            --light-text: #2d3748;
+            --dark-bg: #1a202c;
+            --dark-accent: #2d3748;
+            --dark-text: #e2e8f0;
+        }
+
+        .light-theme {
+            background-color: var(--light-bg);
+            color: var(--light-text);
+        }
+
+        .dark-theme {
+            background-color: var(--dark-bg);
+            color: var(--dark-text);
+        }
+
+        .sidebar {
+            height: 100vh;
+            position: fixed;
+            transition: all 0.3s;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+            }
+            .sidebar.active {
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+<body class="light-theme">
+    <!-- Theme Toggle -->
+    <button id="theme-toggle" class="fixed top-4 right-4 p-2 rounded-full">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <!-- Sidebar -->
+    <nav class="sidebar w-64 p-6 bg-opacity-90 backdrop-blur-sm">
+        <div class="flex flex-col h-full">
+            <!-- Profile Section -->
+            <div class="mb-8 text-center">
+                <div class="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden">
+                    <img src="/api/placeholder/128/128" alt="Profile" class="w-full h-full object-cover">
+                </div>
+                <h1 class="text-xl font-bold">Your Name</h1>
+                <p class="text-sm">Data Scientist | Explorer</p>
+            </div>
+
+            <!-- Navigation Links -->
+            <ul class="space-y-4 flex-grow">
+                <li><a href="#" class="hover:opacity-75">🏠 Home</a></li>
+                <li><a href="#" class="hover:opacity-75">📚 Learning Journal</a></li>
+                <li><a href="#" class="hover:opacity-75">🔬 Projects</a></li>
+                <li><a href="#" class="hover:opacity-75">💡 Ideas & Thoughts</a></li>
+                <li><a href="#" class="hover:opacity-75">🎯 Skills Progress</a></li>
+            </ul>
+
+            <!-- Search Bar -->
+            <div class="relative mb-6">
+                <input type="search" 
+                       placeholder="Search..." 
+                       class="w-full p-2 rounded bg-opacity-50 backdrop-blur-sm border border-gray-300 dark:border-gray-700">
+                <i class="fas fa-search absolute right-3 top-3 opacity-50"></i>
+            </div>
+
+            <!-- Social Links -->
+            <div class="flex justify-center space-x-4">
+                <a href="#" class="hover:opacity-75"><i class="fab fa-github"></i></a>
+                <a href="#" class="hover:opacity-75"><i class="fab fa-linkedin"></i></a>
+                <a href="#" class="hover:opacity-75"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="ml-64 p-8">
+        <!-- Welcome Section -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold mb-4">Welcome to My Data Science Journey</h2>
+            <p class="text-lg opacity-80">
+                Exploring the world through the lens of data - from engineering to science,
+                from pipelines to insights.
+            </p>
+        </section>
+
+        <!-- Featured Content -->
+        <section class="mb-12">
+            <h3 class="text-2xl font-bold mb-6">Recent Documentation</h3>
+            <div class="content-grid">
+                <!-- Content Card Template -->
+                <article class="p-6 rounded-lg shadow-lg backdrop-blur-sm">
+                    <div class="mb-4">
+                        <span class="text-sm opacity-75">Posted on Sept 15, 2024</span>
+                        <h4 class="text-xl font-semibold mt-2">Understanding Neural Networks</h4>
+                    </div>
+                    <p class="opacity-80 mb-4">
+                        Deep diving into the fundamentals of neural networks and their applications
+                        in real-world scenarios...
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2 py-1 text-sm rounded-full bg-opacity-20 backdrop-blur-sm">
+                            #MachineLearning
+                        </span>
+                        <span class="px-2 py-1 text-sm rounded-full bg-opacity-20 backdrop-blur-sm">
+                            #DeepLearning
+                        </span>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Theme Toggle Functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+        const icon = themeToggle.querySelector('i');
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-theme');
+            body.classList.toggle('light-theme');
+            icon.classList.toggle('fa-moon');
+            icon.classList.toggle('fa-sun');
+        });
+
+        // Mobile Menu Toggle
+        const menuToggle = document.createElement('button');
+        menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+        menuToggle.className = 'fixed top-4 left-4 p-2 rounded-full md:hidden';
+        document.body.appendChild(menuToggle);
+
+        const sidebar = document.querySelector('.sidebar');
+        menuToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
