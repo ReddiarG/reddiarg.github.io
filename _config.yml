@@ -1,0 +1,21 @@
+# _config.yml
+title: My Journey through all-things Data
+description: Documenting my journey through all-things Data - from thoughts & ideas to projects & learnings, and everything interesting along the way!
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://reddiarg.github.io" # replace with your GitHub username
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+
+# Exclude files from processing
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+
+# Collections
+collections:
+  projects:
+    output: true
+    permalink: /projects/:path/
