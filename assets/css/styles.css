@@ -1,0 +1,39 @@
+/* Custom styles for dark mode and transitions */
+:root {
+    --background: #f4f4f5;
+    --text: #18181b;
+}
+
+.dark {
+    --background: #18181b;
+    --text: #f4f4f5;
+}
+
+body {
+    background-color: var(--background);
+    color: var(--text);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.menu-overlay {
+    backdrop-filter: blur(4px);
+}
+
+/* Smooth transitions */
+.nav-menu {
+    transition: transform 0.3s ease;
+}
+
+.nav-menu.hidden {
+    transform: translateX(-100%);
+}
+
+/* Custom animations */
+.voyager {
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+}
